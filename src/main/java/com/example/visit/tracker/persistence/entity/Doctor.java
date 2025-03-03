@@ -1,9 +1,7 @@
 package com.example.visit.tracker.persistence.entity;
 
 import jakarta.persistence.*;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.List;
 
@@ -12,6 +10,8 @@ import java.util.List;
 @Getter
 @Setter
 @Table(name = "doctors")
+@NoArgsConstructor
+@AllArgsConstructor
 public class Doctor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

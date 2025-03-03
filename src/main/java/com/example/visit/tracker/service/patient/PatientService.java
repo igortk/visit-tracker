@@ -6,8 +6,12 @@ import com.example.visit.tracker.dto.api.response.PatientResponse;
 import com.example.visit.tracker.dto.api.response.VisitResponse;
 import com.example.visit.tracker.persistence.entity.Patient;
 import com.example.visit.tracker.persistence.repository.PatientRepository;
+import com.example.visit.tracker.persistence.specification.PatientSpecification;
 import com.example.visit.tracker.persistence.repository.VisitRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
@@ -17,12 +21,14 @@ import java.util.stream.Collectors;
 public class PatientService {
     @Autowired
     private PatientRepository patientRepository;
-
     @Autowired
     private VisitRepository visitRepository;
 
     public List<PatientResponse> getPatients(Integer page, Integer size, String search, List<Integer> doctorIds) {
-        var patients = patientRepository.getPatients(page, size, search, doctorIds);
+        var spec = Specification.where(PatientSpecification.hasNameLike(search))
+                .and(PatientSpecification.hasDoctorIds(doctorIds));
+
+        var patients = patientRepository.findAll(spec, PageRequest.of(page - 1, size, Sort.by(Sort.Direction.DESC, "id"))).getContent();
 
         var patientIds = patients.stream().map(Patient::getId).toList();
 
@@ -64,5 +70,6 @@ public class PatientService {
                     .build();
         }).toList();
     }
+
 }
 

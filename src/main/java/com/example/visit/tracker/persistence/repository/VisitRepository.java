@@ -25,7 +25,7 @@ public interface VisitRepository extends JpaRepository<Visit, Integer> {
 
 
     @Query("""
-                SELECT new com.example.visit.tracker.service.patient.DoctorPatientCount(
+                SELECT new com.example.visit.tracker.dto.DoctorPatientCount(
                     v.doctor.id, COUNT(DISTINCT v.patient.id)
                 )
                 FROM Visit v

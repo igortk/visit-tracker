@@ -12,7 +12,7 @@ public class PatientSearchRequest {
     private Integer page = 1;
     @Min(value = 1, message = "must be greater than 0")
     private Integer size = 20;
-    @Pattern(regexp = "^[a-zA-Z]*$", message = "can only contain letters")
+    @Pattern(regexp = "^[a-zA-Z0-9]*$", message = "can only contain letters or number") // number contains only for test, after testing change to: ^[a-zA-Z]*$
     private String search;
     @Pattern(regexp = "([0-9]+,)*[0-9]+", message = "must be a comma-separated list of integers")
     private String doctorIds;
