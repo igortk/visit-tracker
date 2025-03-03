@@ -1,0 +1,1 @@
+create index updated_time_idx on public.assetboxes using btree (updatedtime);
