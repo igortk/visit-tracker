@@ -24,13 +24,11 @@ public interface VisitRepository extends JpaRepository<Visit, Integer> {
     List<Visit> findLastVisitsForPatients(@Param("patientIds") List<Integer> patientIds);
 
 
-    @Query("""
-                SELECT new com.example.visit.tracker.dto.DoctorPatientCount(
-                    v.doctor.id, COUNT(DISTINCT v.patient.id)
-                )
-                FROM Visit v
-                WHERE v.doctor.id IN :doctorIds
-                GROUP BY v.doctor.id
-            """)
+    @Query(value = """
+                SELECT v.doctor_id, COUNT(DISTINCT v.patient_id)
+                FROM visits v
+                WHERE v.doctor_id IN :doctorIds
+                GROUP BY v.doctor_id
+            """, nativeQuery = true)
     List<DoctorPatientCount> countUniquePatientsByDoctors(@Param("doctorIds") List<Integer> doctorIds);
 }
