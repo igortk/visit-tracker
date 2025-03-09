@@ -1,0 +1,16 @@
+stages:
+  - linter
+  - unit-test
+  - build
+
+lint:
+  stage: lint
+  script:
+    - mvn checkstyle:check
+  allow_failure: true
+
+unit_tests:
+  stage: test
+  script:
+    - mvn test --fail-at-end
+  coverage: '/Total.*?(\d+)%/'
