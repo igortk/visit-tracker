@@ -1,10 +1,10 @@
 stages:
   - linter
-  - unit-test
+  - test
   - build
 
 lint:
-  stage: lint
+  stage: linter
   script:
     - mvn checkstyle:check
   allow_failure: true
