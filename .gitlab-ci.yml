@@ -1,5 +1,11 @@
 image: maven:3.9.4-eclipse-temurin-17
 
+variables:
+  PORT:
+  DB_JDBC_URL:
+  DB_USERNAME:
+  DB_PASSWORD:
+
 stages:
   - linter
   - test
