@@ -1,11 +1,5 @@
 image: maven:3.9.4-eclipse-temurin-17
 
-variables:
-  PORT:
-  DB_JDBC_URL:
-  DB_USERNAME:
-  DB_PASSWORD:
-
 stages:
   - linter
   - test
@@ -20,5 +14,5 @@ lint:
 unit_tests:
   stage: test
   script:
-    - mvn test --fail-at-end
+    - mvn -DPORT=${PORT} -DDB_PASSWORD=${DB_PASSWORD} -DDB_USERNAME=${DB_USERNAME} -DDB_JDBC_URL=${DB_JDBC_URL} test --fail-at-end
   coverage: '/Total.*?(\d+)%/'
