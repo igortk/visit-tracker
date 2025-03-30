@@ -91,3 +91,21 @@ Response:
     "count": 1
 }
 ```
+## 🐳 Running via docker
+
+### 1️⃣ Build the image
+```sh
+docker build -t visit-tracker-image .
+```
+
+### 2️⃣ Run the container
+```sh
+docker run --network=<NETWORK> \
+  -e PORT=<PORT> \
+  -e DB_PASSWORD=<DB_PASSWORD> \
+  -e DB_USERNAME=<DB_USERNAME> \
+  -e DB_JDBC_URL=<DB_JDBC_URL> \
+  -p <HOST_PORT>:<CONTAINER_PORT> \
+  --name <CONTAINER_NAME> \
+  visit-tracker-image
+```
