@@ -1,11 +1,11 @@
-package com.example.visit.tracker.test.persistence;
+package com.example.visit.tracker.test;
 
 import com.example.visit.tracker.persistence.entity.Doctor;
 import com.example.visit.tracker.persistence.entity.Patient;
 import com.example.visit.tracker.persistence.entity.Visit;
-import com.example.visit.tracker.test.persistence.repository.DoctorRepositoryTestData;
-import com.example.visit.tracker.test.persistence.repository.PatientRepositoryTestData;
-import com.example.visit.tracker.test.persistence.repository.VisitRepositoryTestData;
+import com.example.visit.tracker.test.repository.DoctorRepositoryTestData;
+import com.example.visit.tracker.test.repository.PatientRepositoryTestData;
+import com.example.visit.tracker.test.repository.VisitRepositoryTestData;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
