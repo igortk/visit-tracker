@@ -1,4 +1,4 @@
-package com.example.visit.tracker.test.persistence.repository;
+package com.example.visit.tracker.test.repository;
 
 import com.example.visit.tracker.persistence.entity.Patient;
 import org.springframework.data.jpa.repository.JpaRepository;
