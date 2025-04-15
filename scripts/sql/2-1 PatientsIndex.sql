@@ -1,1 +1,1 @@
-CREATE INDEX idx_patient_first_name ON patients (first_name);
+CREATE INDEX idx_patients_first_name ON public.patients(first_name)

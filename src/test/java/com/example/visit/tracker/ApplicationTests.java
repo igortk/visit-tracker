@@ -1,6 +1,6 @@
 package com.example.visit.tracker;
 
-import com.example.visit.tracker.test.persistence.TestDataGenerator;
+import com.example.visit.tracker.test.TestDataGenerator;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
